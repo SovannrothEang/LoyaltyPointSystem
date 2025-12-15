@@ -1,4 +1,5 @@
 ﻿using System.Text;
+using LoyaltyPointSystem.Configs.Profiles;
 using LoyaltyPointSystem.Data;
 using LoyaltyPointSystem.Features.Identity;
 using LoyaltyPointSystem.Features.Identity.Interfaces;
@@ -15,8 +16,21 @@ public static class DependencyInjections
         {
             builder.Services.AddScoped<ITokenService, TokenService>();
 
+            builder.Services.AddScoped<IUserService, AuthService>();
+
             return builder.Services;
         }
+
+        public IServiceCollection AddProfiles()
+        {
+            builder.Services.AddAutoMapper(cfg =>
+            {
+                cfg.AddProfile<IdentityProfile>();
+            });
+            
+            return builder.Services;
+        }
+        
         public IServiceCollection AddAuthentication()
         {
             var jwtIssuer =  builder.Configuration["Jwt:Issuer"];

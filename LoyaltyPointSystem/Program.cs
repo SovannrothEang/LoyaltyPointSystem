@@ -1,5 +1,6 @@
 using LoyaltyPointSystem.Configs;
 using LoyaltyPointSystem.Data;
+using LoyaltyPointSystem.Data.Seed;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Scalar.AspNetCore;
@@ -8,6 +9,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 builder.Services.AddOpenApi();
+builder.AddProfiles();
 builder.AddIdentity();
 builder.AddDependencyInjections();
 
@@ -32,6 +34,8 @@ if (app.Environment.IsDevelopment())
     });
     app.Map("/", () => Results.Redirect("/scalar"));
 }
+
+await app.IdentitySeedAsync();
 
 app.UseHttpsRedirection();
 app.UseAuthentication();

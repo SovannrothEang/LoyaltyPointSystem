@@ -2,6 +2,11 @@
 
 namespace LoyaltyPointSystem.Features.Identity;
 
-public class Role : IdentityRole<string>
+public sealed class Role : IdentityRole<string>
 {
+    public Role()
+        => Id = Guid.NewGuid().ToString();
+    
+    public Role(string id)
+        => Id = id;
 }

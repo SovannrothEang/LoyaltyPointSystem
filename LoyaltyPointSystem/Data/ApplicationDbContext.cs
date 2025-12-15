@@ -5,7 +5,8 @@ using Microsoft.EntityFrameworkCore;
 
 namespace LoyaltyPointSystem.Data;
 
-public class ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : IdentityDbContext<User, Role, string>(options)
+public class ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
+   : IdentityDbContext<User, Role, string>(options)
 {
    protected override void OnModelCreating(ModelBuilder builder)
    {

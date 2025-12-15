@@ -8,7 +8,8 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 builder.Services.AddOpenApi();
-builder.Services.AddDependencyInjections();
+builder.AddIdentity();
+builder.AddDependencyInjections();
 
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
 {

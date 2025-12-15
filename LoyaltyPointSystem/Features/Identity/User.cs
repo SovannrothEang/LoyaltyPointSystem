@@ -2,6 +2,17 @@
 
 namespace LoyaltyPointSystem.Features.Identity;
 
-public class User : IdentityUser<string>
+public sealed class User : IdentityUser<string>
 {
+    public User()
+    {
+        Id = Guid.NewGuid().ToString();
+        SecurityStamp = Guid.NewGuid().ToString();
+    }
+
+    public User(string id)
+    {
+        Id = id;
+        SecurityStamp = Guid.NewGuid().ToString();
+    }
 }

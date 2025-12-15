@@ -1,0 +1,6 @@
+<Solution>
+  <Folder Name="/Docs/">
+    <File Path="API.md" />
+  </Folder>
+  <Project Path="LoyaltyPointSystem/LoyaltyPointSystem.csproj" />
+</Solution>

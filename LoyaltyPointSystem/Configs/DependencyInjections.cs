@@ -3,6 +3,7 @@ using LoyaltyPointSystem.Configs.Profiles;
 using LoyaltyPointSystem.Data;
 using LoyaltyPointSystem.Features.Identity;
 using LoyaltyPointSystem.Features.Identity.Interfaces;
+using LoyaltyPointSystem.Shared.Interfaces;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.IdentityModel.Tokens;
 
@@ -14,6 +15,7 @@ public static class DependencyInjections
     {
         public IServiceCollection AddDependencyInjections()
         {
+            builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
             builder.Services.AddScoped<ITokenService, TokenService>();
 
             builder.Services.AddScoped<IUserService, AuthService>();

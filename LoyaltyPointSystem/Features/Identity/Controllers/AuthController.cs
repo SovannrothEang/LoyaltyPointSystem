@@ -6,6 +6,7 @@ namespace LoyaltyPointSystem.Features.Identity.Controllers;
 
 [Route("api/[controller]")]
 [ApiController]
+[Tags("Auth")]
 public class AuthController(IUserService userService) : ControllerBase
 {
     private readonly IUserService _userService = userService;

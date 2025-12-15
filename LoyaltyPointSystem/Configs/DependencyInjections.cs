@@ -17,6 +17,7 @@ public static class DependencyInjections
             builder.Services.AddScoped<ITokenService, TokenService>();
 
             builder.Services.AddScoped<IUserService, AuthService>();
+            builder.Services.AddScoped<IRoleService, RoleService>();
 
             return builder.Services;
         }
